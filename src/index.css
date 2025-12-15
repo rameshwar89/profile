@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @font-face {
   font-family: "JustFontime";
-  src: url("/public/just-fontime.regular.otf") format("opentype");
+  src: url("./assets/just-fontime.regular.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
