@@ -3,223 +3,115 @@ import React from 'react'
 const Sponsors = () => {
   return (
     <>
-      <div className="w-screen h-full pt-30 pb-20 flex flex-col items-center relative z-20 bg-[url('./assets/sponsors/bg.png')] bg-cover bg-center bg-no-repeat">
+      <div className="w-full h-full pt-30 pb-[15%] flex flex-col items-center relative z-20 bg-[url('./assets/sponsors/bg.png')] bg-cover bg-center bg-no-repeat">
 
-        <div className="w-screen  h-45 mt-20 bg-[url('./assets/sponsors/sponsors.png')] bg-contain bg-center bg-no-repeat">
+        <div className="w-[50%] px-4 h-35 mt-20 bg-[url('./assets/sponsors/sponsors.png')] bg-contain bg-center bg-no-repeat">
         </div>
 
-        <div className="w-screen h-48 mt-15 bg-[url('./assets/sponsors/title-bg.png')] bg-cover bg-center bg-no-repeat">
-          <div className="w-screen h-20 z-10 mt-13 bg-[url('./assets/sponsors/titlesponsor.png')] bg-contain bg-center bg-no-repeat">
-          </div>
-        </div>
-
-        <div className='flex w-auto justify-center items-center mt-10 gap-15'>
-          <div className="w-60 h-60 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-60 h-60 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-60 h-60 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-60 h-60 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
+        {/* Title Sponsor Section */}
+        <div className="w-full overflow-visible mt-[5%] bg-[url('./assets/sponsors/title-bg.png')] bg-cover bg-center bg-no-repeat flex items-center justify-center" style={{ minHeight: 'clamp(8rem, 10vw, 15rem)' }}>
+          <div className="w-full h-20 bg-[url('./assets/sponsors/titlesponsor.png')] bg-contain bg-center bg-no-repeat" style={{height: 'clamp(3.5rem, 6vw, 20rem)'}}>
           </div>
         </div>
 
-        <div className="w-screen h-50 mt-10 bg-[url('./assets/sponsors/co-title-bg.png')] bg-cover bg-center bg-no-repeat">
-          <div className="w-screen h-20 z-10 mt-16 bg-[url('./assets/sponsors/co-title.png')] bg-contain bg-center bg-no-repeat">
+        {/* Title Sponsor Logos */}
+        <div className='w-full mt-[2%] p-[2%]'>
+          <div className='flex justify-center items-center gap-[3%]'>
+            {[...Array(4)].map((_, index) => (
+              <div key={index} className="flex-1 max-w-55 aspect-square relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
+                <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat"/>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className='flex w-auto justify-center items-center mt-15 gap-7'>
-          <div className="w-43 h-43 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-43 h-43 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-43 h-43 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-43 h-43 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-43 h-43 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-43 h-43 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-43 h-43 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
+        {/* Co-Title Sponsor Section */}
+        <div className="w-full overflow-visible mt-[2%] bg-[url('./assets/sponsors/co-title-bg.png')] bg-cover bg-center bg-no-repeat flex items-center justify-center" style={{ minHeight: 'clamp(8rem, 13vw, 15rem)' }}>
+          <div className="w-full mt-5 bg-[url('./assets/sponsors/co-title.png')] bg-contain bg-center bg-no-repeat" style={{height: 'clamp(3.5rem, 5vw, 20rem)'}}>
           </div>
         </div>
 
-        <div className='flex w-auto justify-center items-center mt-4 gap-7'>
-          <div className="w-43 h-43 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
+        {/* Co-Title Sponsor Logos */}
+        <div className='w-full mt-[2%] p-[2%]'>
+          <div className='flex justify-center items-center gap-[2%]'>
+            {[...Array(7)].map((_, index) => (
+              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
+                <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
+              </div>
+            ))}
           </div>
-          <div className="w-43 h-43 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-43 h-43 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-43 h-43 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-43 h-43 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-43 h-43 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-        </div>
-        <div className="w-screen h-48 mt-20 bg-[url('./assets/sponsors/drive-bg.png')] bg-cover bg-center bg-no-repeat">
-          <div className="w-screen h-20 z-10 mt-13 bg-[url('./assets/sponsors/drive.png')] bg-contain bg-center bg-no-repeat">
-          </div>
-        </div>
-        <div className='flex w-auto justify-center items-center mt-15 gap-7'>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
+          <div className='flex justify-center items-center gap-[2%]'>
+            {[...Array(6)].map((_, index) => (
+              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
+                <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className='flex w-auto justify-center items-center mt-4 gap-7'>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-        </div>
-        <div className="w-screen h-48 mt-20 bg-[url('./assets/sponsors/food-bg.png')] bg-cover bg-center bg-no-repeat">
-          <div className="w-screen h-20 z-10 mt-13 bg-[url('./assets/sponsors/food.png')] bg-contain bg-center bg-no-repeat">
-          </div>
-        </div>
-        <div className='flex w-auto justify-center items-center mt-15 gap-7'>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className='w-40 h-40 z-10 relative' style={{ backgroundImage: "url('./assets/sponsors/tea2.png')", backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
-            <div className='w-35 h-35  top-3 left-2 absolute' style={{ backgroundImage: "url('./assets/sponsors/elli3.png')", backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
-            </div>
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
+        {/* Driving Partner Section */}
+        <div className="w-full overflow-visible mt-[3%] bg-[url('./assets/sponsors/drive-bg.png')] bg-cover bg-center bg-no-repeat flex items-center justify-center" style={{ minHeight: 'clamp(8rem, 13vw, 15rem)' }}>
+          <div className="w-full bg-[url('./assets/sponsors/drive.png')] bg-contain bg-center bg-no-repeat" style={{height: 'clamp(3.5rem, 5vw, 20rem)'}}>
           </div>
         </div>
 
-        <div className='flex w-auto justify-center items-center mt-4 gap-7'>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
+        {/* Driving Partner Logos */}
+        <div className='w-full mt-[2%] p-[2%]'>
+          <div className='flex justify-center items-center gap-[2%]'>
+            {[...Array(7)].map((_, index) => (
+              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
+                <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
+              </div>
+            ))}
           </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-        </div>
-        <div className='flex w-auto justify-center items-center mt-4 gap-7'>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
+          <div className='flex justify-center items-center gap-[2%]'>
+            {[...Array(6)].map((_, index) => (
+              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
+                <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className='flex w-auto justify-center items-center mt-4 gap-7'>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-          </div>
-          <div className="w-40 h-40 z-10 relative flex items-center justify-center bg-[url('./assets/sponsors/tea.png')] bg-contain bg-center bg-no-repeat">
-            <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
+        {/* Food Partner Section */}
+        <div className="w-full overflow-visible mt-[3%] bg-[url('./assets/sponsors/food-bg.png')] bg-cover bg-center bg-no-repeat flex items-center justify-center" style={{ minHeight: 'clamp(8rem, 13vw, 15rem)' }}>
+          <div className="w-full mt-5 bg-[url('./assets/sponsors/food.png')] bg-contain bg-center bg-no-repeat" style={{height: 'clamp(3.5rem, 5vw, 20rem)'}}>
           </div>
         </div>
 
-        <div className="w-full h-60 flex flex-col items-center top-20 relative z-30 bg-[url('./assets/sponsors/conclusion.png')] bg-cover bg-center bg-no-repeat"></div>
+        {/* Food Partner Logos */}
+        <div className='w-full mt-[2%] p-[2%]'>
+          <div className='flex justify-center items-center gap-[2%]'>
+            {[...Array(7)].map((_, index) => (
+              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
+                <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
+              </div>
+            ))}
+          </div>
+          <div className='flex justify-center items-center gap-[2%]'>
+            {[...Array(6)].map((_, index) => (
+              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
+                <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
+              </div>
+            ))}
+          </div>
+          <div className='flex justify-center items-center gap-[2%]'>
+            {[...Array(7)].map((_, index) => (
+              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
+                <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
+              </div>
+            ))}
+          </div>
+          <div className='flex justify-center items-center gap-[2%]'>
+            {[...Array(6)].map((_, index) => (
+              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
+                <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="w-full absolute bottom-0 bg-[url('./assets/sponsors/conclusion.png')] bg-cover bg-center bg-no-repeat" style={{ minHeight: 'clamp(4rem, 14vw, 14.5rem)'}}></div>
       </div>
 
     </>
