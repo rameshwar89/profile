@@ -1,5 +1,19 @@
 import React from 'react'
 
+import bg from '../assets/sponsors/bg.png'
+import sponsors from '../assets/sponsors/sponsors.png'
+import titleBg from '../assets/sponsors/title-bg.png'
+import titlesponsor from '../assets/sponsors/titlesponsor.png'
+import coTitleBg from '../assets/sponsors/co-title-bg.png'
+import coTitle from '../assets/sponsors/co-title.png'
+import driveBg from '../assets/sponsors/drive-bg.png'
+import drive from '../assets/sponsors/drive.png'
+import foodBg from '../assets/sponsors/food-bg.png'
+import food from '../assets/sponsors/food.png'
+import conclusion from '../assets/sponsors/conclusion.png'
+import tea from '../assets/sponsors/tea.png'
+import tea2 from '../assets/sponsors/tea2.png'
+
 const sponsorImages = import.meta.glob('../assets/sponsors/elli*.png', { eager: true, import: 'default' })
 
 const Sponsors = () => {
@@ -50,14 +64,14 @@ const Sponsors = () => {
 
   return (
     <>
-      <div className="w-full h-full pt-30 pb-[15%] flex flex-col items-center relative z-20 bg-[url('./assets/sponsors/bg.png')] bg-cover bg-center bg-no-repeat">
+      <div className="w-full h-full pt-30 pb-[15%] flex flex-col items-center relative z-20 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${bg})` }}>
 
-        <div className="w-[50%] px-4 h-35 mt-20 bg-[url('./assets/sponsors/sponsors.png')] bg-contain bg-center bg-no-repeat">
+        <div className="w-[50%] px-4 h-35 mt-20 bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${sponsors})` }}>
         </div>
 
         {/* Title Sponsor Section */}
-        <div className="w-full overflow-visible mt-[5%] bg-[url('./assets/sponsors/title-bg.png')] bg-cover bg-center bg-no-repeat flex items-center justify-center" style={{ minHeight: 'clamp(8rem, 10vw, 15rem)' }}>
-          <div className="w-full h-20 bg-[url('./assets/sponsors/titlesponsor.png')] bg-contain bg-center bg-no-repeat" style={{height: 'clamp(3.5rem, 6vw, 20rem)'}}>
+        <div className="w-full overflow-visible mt-[5%] bg-cover bg-center bg-no-repeat flex items-center justify-center" style={{ minHeight: 'clamp(8rem, 10vw, 15rem)', backgroundImage: `url(${titleBg})` }}>
+          <div className="w-full h-20 bg-contain bg-center bg-no-repeat" style={{height: 'clamp(3.5rem, 6vw, 20rem)', backgroundImage: `url(${titlesponsor})`}}>
           </div>
         </div>
 
@@ -65,7 +79,7 @@ const Sponsors = () => {
         <div className='w-full mt-[2%] p-[2%]'>
           <div className='flex justify-center items-center gap-[3%]'>
             {titleSponsors.map((logo, index) => (
-              <div key={index} className="flex-1 max-w-55 aspect-square relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
+              <div key={index} className="flex-1 max-w-55 aspect-square relative flex items-center justify-center bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${(index === 0 || index===3) ? tea2 : tea})` }}>
                 <img src={getImage(logo)} alt="sponsor" className="w-[88%] h-[88%] object-contain" />
               </div>
             ))}
@@ -73,8 +87,8 @@ const Sponsors = () => {
         </div>
 
         {/* Co-Title Sponsor Section */}
-        <div className="w-full overflow-visible mt-[2%] bg-[url('./assets/sponsors/co-title-bg.png')] bg-cover bg-center bg-no-repeat flex items-center justify-center" style={{ minHeight: 'clamp(8rem, 13vw, 15rem)' }}>
-          <div className="w-full mt-5 bg-[url('./assets/sponsors/co-title.png')] bg-contain bg-center bg-no-repeat" style={{height: 'clamp(3.5rem, 5vw, 20rem)'}}>
+        <div className="w-full overflow-visible mt-[2%] bg-cover bg-center bg-no-repeat flex items-center justify-center" style={{ minHeight: 'clamp(8rem, 13vw, 15rem)', backgroundImage: `url(${coTitleBg})` }}>
+          <div className="w-full mt-5 bg-contain bg-center bg-no-repeat" style={{height: 'clamp(3.5rem, 5vw, 20rem)', backgroundImage: `url(${coTitle})`}}>
           </div>
         </div>
 
@@ -82,14 +96,14 @@ const Sponsors = () => {
         <div className='w-full mt-[2%] p-[2%]'>
           <div className='flex justify-center items-center gap-[2%]'>
             {coTitleSponsorsRow1.map((logo, index) => (
-              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
+              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${index % 2 === 0 ? tea2 : tea})` }}>
                 <img src={getImage(logo)} alt="sponsor" className="w-[88%] h-[88%] object-contain" />
               </div>
             ))}
           </div>
           <div className='flex justify-center items-center gap-[2%]'>
             {coTitleSponsorsRow2.map((logo, index) => (
-              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
+              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${index % 2 === 0 ? tea : tea2})` }}>
                 <img src={getImage(logo)} alt="sponsor" className="w-[88%] h-[88%] object-contain" />
               </div>
             ))}
@@ -97,8 +111,8 @@ const Sponsors = () => {
         </div>
 
         {/* Driving Partner Section */}
-        <div className="w-full overflow-visible mt-[3%] bg-[url('./assets/sponsors/drive-bg.png')] bg-cover bg-center bg-no-repeat flex items-center justify-center" style={{ minHeight: 'clamp(8rem, 13vw, 15rem)' }}>
-          <div className="w-full bg-[url('./assets/sponsors/drive.png')] bg-contain bg-center bg-no-repeat" style={{height: 'clamp(3.5rem, 5vw, 20rem)'}}>
+        <div className="w-full overflow-visible mt-[3%] bg-cover bg-center bg-no-repeat flex items-center justify-center" style={{ minHeight: 'clamp(8rem, 13vw, 15rem)', backgroundImage: `url(${driveBg})` }}>
+          <div className="w-full bg-contain bg-center bg-no-repeat" style={{height: 'clamp(3.5rem, 5vw, 20rem)', backgroundImage: `url(${drive})`}}>
           </div>
         </div>
 
@@ -106,14 +120,14 @@ const Sponsors = () => {
         <div className='w-full mt-[2%] p-[2%]'>
           <div className='flex justify-center items-center gap-[2%]'>
             {drivingPartnersRow1.map((logo, index) => (
-              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
+              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${index % 2 === 0 ? tea2 : tea})` }}>
                 <img src={getImage(logo)} alt="sponsor" className="w-[88%] h-[88%] object-contain" />
               </div>
             ))}
           </div>
           <div className='flex justify-center items-center gap-[2%]'>
             {drivingPartnersRow2.map((logo, index) => (
-              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
+              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${index % 2 === 0 ? tea : tea2})` }}>
                 <img src={getImage(logo)} alt="sponsor" className="w-[88%] h-[88%] object-contain" />
               </div>
             ))}
@@ -121,8 +135,8 @@ const Sponsors = () => {
         </div>
 
         {/* Food Partner Section */}
-        <div className="w-full overflow-visible mt-[3%] bg-[url('./assets/sponsors/food-bg.png')] bg-cover bg-center bg-no-repeat flex items-center justify-center" style={{ minHeight: 'clamp(8rem, 13vw, 15rem)' }}>
-          <div className="w-full mt-5 bg-[url('./assets/sponsors/food.png')] bg-contain bg-center bg-no-repeat" style={{height: 'clamp(3.5rem, 5vw, 20rem)'}}>
+        <div className="w-full overflow-visible mt-[3%] bg-cover bg-center bg-no-repeat flex items-center justify-center" style={{ minHeight: 'clamp(8rem, 13vw, 15rem)', backgroundImage: `url(${foodBg})` }}>
+          <div className="w-full mt-5 bg-contain bg-center bg-no-repeat" style={{height: 'clamp(3.5rem, 5vw, 20rem)', backgroundImage: `url(${food})`}}>
           </div>
         </div>
 
@@ -130,35 +144,35 @@ const Sponsors = () => {
         <div className='w-full mt-[2%] p-[2%]'>
           <div className='flex justify-center items-center gap-[2%]'>
             {foodPartnersRow1.map((logo, index) => (
-              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
+              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${index % 2 === 0 ? tea2 : tea})` }}>
                 <img src={getImage(logo)} alt="sponsor" className="w-[88%] h-[88%] object-contain" />
               </div>
             ))}
           </div>
           <div className='flex justify-center items-center gap-[2%]'>
             {foodPartnersRow2.map((logo, index) => (
-              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
+              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${index % 2 === 0 ? tea : tea2})` }}>
                 <img src={getImage(logo)} alt="sponsor" className="w-[88%] h-[88%] object-contain" />
               </div>
             ))}
           </div>
           <div className='flex justify-center items-center gap-[2%]'>
             {foodPartnersRow3.map((logo, index) => (
-              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
+              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${index % 2 === 0 ? tea : tea2})` }}>
                 <img src={getImage(logo)} alt="sponsor" className="w-[88%] h-[88%] object-contain" />
               </div>
             ))}
           </div>
           <div className='flex justify-center items-center gap-[2%]'>
             {foodPartnersRow4.map((logo, index) => (
-              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-[url('./assets/sponsors/tea2.png')] bg-contain bg-center bg-no-repeat">
+              <div key={index} className="w-[calc((100%-12%)/7)] max-w-43 aspect-square relative flex items-center justify-center bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${index % 2 === 0 ? tea : tea2})` }}>
                 <img src={getImage(logo)} alt="sponsor" className="w-[88%] h-[88%] object-contain" />
               </div>
             ))}
           </div>
         </div>
 
-        <div className="w-full absolute bottom-0 bg-[url('./assets/sponsors/conclusion.png')] bg-cover bg-center bg-no-repeat" style={{ minHeight: 'clamp(4rem, 14vw, 14.5rem)'}}></div>
+        <div className="w-full absolute bottom-0 bg-cover bg-center bg-no-repeat" style={{ minHeight: 'clamp(4rem, 14vw, 14.5rem)', backgroundImage: `url(${conclusion})` }}></div>
       </div>
 
     </>
