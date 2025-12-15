@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from 'react'
 
+// Import profile assets
+import bgImage from '../assets/profile/bg.png'
+import dataImage from '../assets/profile/data.png'
+import avatorImage from '../assets/profile/avator.png'
+import addImage from '../assets/profile/add.png'
+import registeredEventsImage from '../assets/profile/registeredEvents.png'
+import passesImage from '../assets/profile/passes.png'
+import elli3Image from '../assets/sponsors/elli3.png'
+
 const Profile = () => {
   const [scale, setScale] = useState(1)
 
@@ -53,15 +62,15 @@ const Profile = () => {
     <>
       {/* Mobile Design */}
       <div className='md:hidden block'>
-        <div className="bg-[url('./assets/profile/bg.png')] bg-cover bg-no-repeat bg-center w-full min-h-screen flex items-center justify-center overflow-x-auto overflow-y-auto p-2" style={{ fontFamily: 'JustFontime' }}>
+        <div className="bg-cover bg-no-repeat bg-center w-full min-h-screen flex items-center justify-center overflow-x-auto overflow-y-auto p-2" style={{ fontFamily: 'JustFontime', backgroundImage: `url(${bgImage})` }}>
           <div className='flex flex-col w-full max-w-md mx-auto'>
             {/* data section */}
             <div className='w-full relative'>
-              <div className="w-full aspect-4/3 bg-[url('./assets/profile/data.png')] bg-contain bg-center bg-no-repeat" />
+              <div className="w-full aspect-4/3 bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${dataImage})` }} />
               <div className='absolute inset-0 flex flex-col justify-center items-center gap-[4%] text-white'>
-                <div className="w-[33%] aspect-square absolute top-[15%] left-1/2 -translate-x-1/2 flex items-center justify-center bg-[url('./assets/profile/avator.png')] bg-contain bg-center bg-no-repeat">
-                  <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-                  <div className='bottom-[2%] absolute right-[2%] w-[20%] aspect-square bg-[url("./assets/profile/add.png")] bg-contain bg-center bg-no-repeat' />
+                <div className="w-[33%] aspect-square absolute top-[15%] left-1/2 -translate-x-1/2 flex items-center justify-center bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${avatorImage})` }}>
+                  <div className="w-[88%] h-[88%] bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${elli3Image})` }} />
+                  <div className='bottom-[2%] absolute right-[2%] w-[20%] aspect-square bg-contain bg-center bg-no-repeat' style={{ backgroundImage: `url(${addImage})` }} />
                 </div>
                 <div className='flex flex-col justify-center items-center gap-1 text-yellow-400 text-shadow-[3px_3px_2px_rgba(0,0,0,0.7)] mt-[45%]'>
                   <h1 className='text-lg font-bold'>Username</h1>
@@ -73,7 +82,7 @@ const Profile = () => {
             {/* Events and passes */}
             <div className='text-2xl w-full flex flex-col justify-center items-center text-white gap-4'>
               <div className='w-full relative'>
-                <div className="w-full aspect-36/20 bg-[url('./assets/profile/registeredEvents.png')] bg-contain bg-center bg-no-repeat" />
+                <div className="w-full aspect-36/20 bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${registeredEventsImage})` }} />
                 <div className='absolute inset-0 flex items-center justify-center px-[8%] pt-[16%] pb-[12%]'>
                   <div className='flex w-full gap-4'>
                     <div className='flex-1'>
@@ -97,7 +106,7 @@ const Profile = () => {
               </div>
 
               <div className='w-full relative'>
-                <div className="w-full aspect-36/20 bg-[url('./assets/profile/passes.png')] bg-contain bg-center bg-no-repeat" />
+                <div className="w-full aspect-36/20 bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${passesImage})` }} />
                 <div className='absolute inset-0 flex items-center justify-center px-[8%] pt-[16%] pb-[12%]'>
                   <div className='w-full h-full flex flex-col'>
                     {/* Table Header */}
@@ -128,7 +137,7 @@ const Profile = () => {
 
       {/* Desktop Design */}
       <div className='hidden md:block'>
-        <div className="bg-[url('./assets/profile/bg.png')] bg-cover bg-no-repeat bg-center w-full min-h-screen flex items-center justify-center overflow-auto p-4" style={{ fontFamily: 'JustFontime' }}>
+        <div className="bg-cover bg-no-repeat bg-center w-full min-h-screen flex items-center justify-center overflow-auto p-4" style={{ fontFamily: 'JustFontime', backgroundImage: `url(${bgImage})` }}>
           <div 
             className='flex gap-2'
             style={{
@@ -140,11 +149,11 @@ const Profile = () => {
           >
             {/* data section */}
             <div className='w-150 min-w-150 shrink-0 relative -mr-5'>
-              <div className="w-full aspect-3/4 bg-[url('./assets/profile/data.png')] bg-contain bg-center bg-no-repeat" />
+              <div className="w-full aspect-3/4 bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${dataImage})` }} />
               <div className='absolute inset-0 flex flex-col justify-center items-center gap-[5%] text-white'>
-                <div className="w-[35%] aspect-square absolute top-[10%] left-[3%] flex items-center justify-center bg-[url('./assets/profile/avator.png')] bg-contain bg-center bg-no-repeat">
-                  <div className="w-[88%] h-[88%] bg-[url('./assets/sponsors/elli3.png')] bg-contain bg-center bg-no-repeat" />
-                  <div className='bottom-[2%] absolute right-[2%] w-[15%] aspect-square bg-[url("./assets/profile/add.png")] bg-contain bg-center bg-no-repeat' />
+                <div className="w-[35%] aspect-square absolute top-[10%] left-[3%] flex items-center justify-center bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${avatorImage})` }}>
+                  <div className="w-[88%] h-[88%] bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${elli3Image})` }} />
+                  <div className='bottom-[2%] absolute right-[2%] w-[15%] aspect-square bg-contain bg-center bg-no-repeat' style={{ backgroundImage: `url(${addImage})` }} />
                 </div>
                 <div className='flex flex-col justify-center items-center gap-2 text-yellow-400 text-shadow-[3px_3px_2px_rgba(0,0,0,0.7)] mt-[40%]'>
                   <h1 className='text-3xl font-bold'>Username</h1>
@@ -156,7 +165,7 @@ const Profile = () => {
             {/* Events and passes */}
             <div className='w-225 min-w-225 shrink-0 flex flex-col text-white'>
               <div className='flex-1 relative -mb-25'>
-                <div className="w-full aspect-9/4 bg-[url('./assets/profile/registeredEvents.png')] bg-contain bg-center bg-no-repeat" />
+                <div className="w-full aspect-9/4 bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${registeredEventsImage})` }} />
                 <div className='absolute inset-0 flex items-center justify-center px-[8%] py-[10%]'>
                   <div className='flex w-full gap-8'>
                     <div className='flex-1'>
@@ -180,7 +189,7 @@ const Profile = () => {
               </div>
 
               <div className='flex-1 relative'>
-                <div className="w-full aspect-90/43 bg-[url('./assets/profile/passes.png')] bg-contain bg-center bg-no-repeat" />
+                <div className="w-full aspect-90/43 bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${passesImage})` }} />
                 <div className='absolute inset-0 flex items-center justify-center px-[12%] py-[10%]'>
                   <div className='w-full h-full flex flex-col'>
                     {/* Table Header */}
