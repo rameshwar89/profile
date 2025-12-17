@@ -9,6 +9,7 @@ import addImage from '../assets/profile/add.png'
 import registeredEventsImage from '../assets/profile/registeredEvents.png'
 import passesImage from '../assets/profile/passes.png'
 import elli3Image from '../assets/profile/elli3.png'
+import logoutImage from '../assets/profile/logout.png'
 
 const createImage = (url) =>
   new Promise((resolve, reject) => {
@@ -63,6 +64,7 @@ const Profile = () => {
   const [crop, setCrop] = useState({ x: 0, y: 0 })
   const [zoom, setZoom] = useState(1)
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null)
+  const [showEventsModal, setShowEventsModal] = useState(false)
   const videoRef = React.useRef(null)
   const canvasRef = React.useRef(null)
   const fileInputRef = React.useRef(null)
@@ -137,6 +139,12 @@ const Profile = () => {
     'Innovation Pitch'
   ]
 
+  const userData = {
+    name: 'Jack Duniya Ka Papa',
+    blitzId: 'BLITZ2025-7829',
+    email: 'duniyakapapa@blitz.com'
+  }
+
   const handleAddClick = () => {
     setShowUploadModal(true)
   }
@@ -201,10 +209,60 @@ const Profile = () => {
     stopCamera()
     setShowUploadModal(false)
   }
+
+  const handleLogout = () => {
+    // Clear profile image from localStorage
+    localStorage.removeItem('profileImage')
+    // Add your logout logic here (e.g., redirect, clear session, etc.)
+    console.log('Logout clicked')
+    alert('Logout functionality - Add your logout logic here')
+  }
   
   return (
     <>
-      {/* Image Cropper Modal */}
+      {/* Events Modal */}
+      {showEventsModal && (
+        <div className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70'>
+          <div className='bg-gray-900 rounded-lg p-6 max-w-3xl w-full mx-4 border-2 border-yellow-400 max-h-[90vh] overflow-y-auto'>
+            <div className='flex justify-between items-center mb-6'>
+              <h2 className='text-2xl font-bold text-yellow-400'>Registered Events</h2>
+              <button 
+                onClick={() => setShowEventsModal(false)}
+                className='text-yellow-400 hover:text-yellow-500 text-3xl font-bold'
+              >
+                X
+              </button>
+            </div>
+            
+            <div className='grid md:grid-cols-2 gap-6'>
+              <div>
+                <h3 className='text-xl font-bold text-yellow-400 mb-3'>Individual Events</h3>
+                <ul className='text-white space-y-2'>
+                  {individualEvents.map((event, index) => (
+                    <li key={index} className='flex items-start'>
+                      <span className='text-yellow-400 mr-2'>-</span>
+                      <span>{event}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className='text-xl font-bold text-yellow-400 mb-3'>Team Events</h3>
+                <ul className='text-white space-y-2'>
+                  {teamEvents.map((event, index) => (
+                    <li key={index} className='flex items-start'>
+                      <span className='text-yellow-400 mr-2'>-</span>
+                      <span>{event}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+       {/* Image Cropper Modal */}
       {showCropper && (
         <div className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90'>
           <div className='bg-gray-900 rounded-lg p-6 max-w-2xl w-full mx-4 border-2 border-yellow-400'>
@@ -344,9 +402,15 @@ const Profile = () => {
                   />
                 </div>
                 <div className='flex flex-col justify-center items-center gap-1 text-yellow-400 text-shadow-[3px_3px_2px_rgba(0,0,0,0.7)] mt-[45%]'>
-                  <h1 className='text-lg font-bold'>Username</h1>
-                  <h2 className='text-base'>Email</h2>
+                  <h1 className='text-2xl font-bold'>{userData.name}</h1>
+                  <h2 className='text-lg'>ID: {userData.blitzId}</h2>
+                  <h3 className='text-base'>{userData.email}</h3>
                 </div>
+                <div 
+                  onClick={handleLogout}
+                  className='w-[25%] aspect-square bg-contain bg-center bg-no-repeat cursor-pointer hover:scale-110 transition-transform mt-4' 
+                  style={{ backgroundImage: `url(${logoutImage})` }} 
+                />
               </div>
             </div>
 
@@ -354,6 +418,14 @@ const Profile = () => {
             <div className='text-2xl w-full flex flex-col justify-center items-center text-white gap-4'>
               <div className='w-full relative'>
                 <div className="w-full aspect-36/20 bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${registeredEventsImage})` }} />
+                <button 
+                  onClick={() => setShowEventsModal(true)}
+                  className='absolute top-[8%] right-[8%] w-6 h-6 text-yellow-400 hover:scale-110 transition-transform cursor-pointer z-10'
+                >
+                  <svg fill='currentColor' viewBox='0 0 24 24'>
+                    <path d='M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z'/>
+                  </svg>
+                </button>
                 <div className='absolute inset-0 flex items-center justify-center px-[8%] pt-[16%] pb-[12%]'>
                   <div className='flex w-full gap-4'>
                     <div className='flex-1'>
@@ -433,9 +505,15 @@ const Profile = () => {
                   />
                 </div>
                 <div className='flex flex-col justify-center items-center gap-2 text-yellow-400 text-shadow-[3px_3px_2px_rgba(0,0,0,0.7)] mt-[40%]'>
-                  <h1 className='text-3xl font-bold'>Username</h1>
-                  <h2 className='text-2xl'>Email</h2>
+                  <h1 className='text-3xl font-bold'>{userData.name}</h1>
+                  <h2 className='text-xl'>ID: {userData.blitzId}</h2>
+                  <h3 className='text-lg'>{userData.email}</h3>
                 </div>
+                <div 
+                  onClick={handleLogout}
+                  className='absolute bottom-[5%] right-[5%] w-[25%] aspect-square bg-contain bg-center bg-no-repeat cursor-pointer hover:scale-110 transition-transform' 
+                  style={{ backgroundImage: `url(${logoutImage})` }} 
+                />
               </div>
             </div>
 
@@ -443,6 +521,14 @@ const Profile = () => {
             <div className='w-225 min-w-225 shrink-0 flex flex-col text-white'>
               <div className='flex-1 relative -mb-25'>
                 <div className="w-full aspect-9/4 bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${registeredEventsImage})` }} />
+                <button 
+                  onClick={() => setShowEventsModal(true)}
+                  className='absolute top-[8%] right-[8%] w-8 h-8 text-yellow-400 hover:scale-110 transition-transform cursor-pointer z-10'
+                >
+                  <svg fill='currentColor' viewBox='0 0 24 24'>
+                    <path d='M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z'/>
+                  </svg>
+                </button>
                 <div className='absolute inset-0 flex items-center justify-center px-[8%] py-[10%]'>
                   <div className='flex w-full gap-8'>
                     <div className='flex-1'>
