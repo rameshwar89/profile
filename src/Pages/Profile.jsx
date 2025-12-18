@@ -65,6 +65,7 @@ const Profile = () => {
   const [zoom, setZoom] = useState(1)
   const [croppedAreaPixels, setCroppedAreaPixels] = useState(null)
   const [showEventsModal, setShowEventsModal] = useState(false)
+  const [selectedEvent, setSelectedEvent] = useState(null)
   const videoRef = React.useRef(null)
   const canvasRef = React.useRef(null)
   const fileInputRef = React.useRef(null)
@@ -211,52 +212,64 @@ const Profile = () => {
   }
 
   const handleLogout = () => {
-    // Clear profile image from localStorage
     localStorage.removeItem('profileImage')
-    // Add your logout logic here (e.g., redirect, clear session, etc.)
     console.log('Logout clicked')
-    alert('Logout functionality - Add your logout logic here')
+    alert('Logout functionality - Add logout logic')
+  }
+
+  const handleEventClick = (eventName, eventType) => {
+    setSelectedEvent({ name: eventName, type: eventType })
   }
   
   return (
     <>
-      {/* Events Modal */}
-      {showEventsModal && (
+      <style>{`
+        /* Custom Scrollbar Styling */
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 4px;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: rgba(0, 0, 0, 0.4);
+          border-radius: 10px;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: rgba(250, 204, 21, 0.4);
+          border-radius: 10px;
+          transition: background 0.3s ease;
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: rgba(250, 204, 21, 0.4);
+        }
+        
+        /* For Firefox */
+        .custom-scrollbar {
+          scrollbar-width: thin;
+          scrollbar-color: rgba(250, 204, 21, 0.3) rgba(0, 0, 0, 0.4);
+        }
+      `}</style>
+      {/* Event Detail Modal */}
+      {selectedEvent && (
         <div className='fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70'>
-          <div className='bg-gray-900 rounded-lg p-6 max-w-3xl w-full mx-4 border-2 border-yellow-400 max-h-[90vh] overflow-y-auto'>
+          <div className='bg-gray-900 rounded-lg p-6 max-w-2xl w-full mx-4 border-2 border-yellow-400'>
             <div className='flex justify-between items-center mb-6'>
-              <h2 className='text-2xl font-bold text-yellow-400'>Registered Events</h2>
+              <h2 className='text-2xl font-bold text-yellow-400'>{selectedEvent.name}</h2>
               <button 
-                onClick={() => setShowEventsModal(false)}
+                onClick={() => setSelectedEvent(null)}
                 className='text-yellow-400 hover:text-yellow-500 text-3xl font-bold'
               >
                 X
               </button>
             </div>
             
-            <div className='grid md:grid-cols-2 gap-6'>
-              <div>
-                <h3 className='text-xl font-bold text-yellow-400 mb-3'>Individual Events</h3>
-                <ul className='text-white space-y-2'>
-                  {individualEvents.map((event, index) => (
-                    <li key={index} className='flex items-start'>
-                      <span className='text-yellow-400 mr-2'>-</span>
-                      <span>{event}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h3 className='text-xl font-bold text-yellow-400 mb-3'>Team Events</h3>
-                <ul className='text-white space-y-2'>
-                  {teamEvents.map((event, index) => (
-                    <li key={index} className='flex items-start'>
-                      <span className='text-yellow-400 mr-2'>-</span>
-                      <span>{event}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div className='text-white space-y-4'>
+              <p><span className='text-yellow-400 font-bold'>Type:</span> {selectedEvent.type}</p>
+              <p><span className='text-yellow-400 font-bold'>Description:</span> Detailed information about {selectedEvent.name} will appear here.</p>
+              <p><span className='text-yellow-400 font-bold'>Date:</span> TBA</p>
+              <p><span className='text-yellow-400 font-bold'>Venue:</span> TBA</p>
+              <p><span className='text-yellow-400 font-bold'>Status:</span> <span className='text-green-400'>Registered</span></p>
             </div>
           </div>
         </div>
@@ -418,29 +431,39 @@ const Profile = () => {
             <div className='text-2xl w-full flex flex-col justify-center items-center text-white gap-4'>
               <div className='w-full relative'>
                 <div className="w-full aspect-36/20 bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${registeredEventsImage})` }} />
-                <button 
-                  onClick={() => setShowEventsModal(true)}
-                  className='absolute top-[8%] right-[8%] w-6 h-6 text-yellow-400 hover:scale-110 transition-transform cursor-pointer z-10'
-                >
-                  <svg fill='currentColor' viewBox='0 0 24 24'>
-                    <path d='M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z'/>
-                  </svg>
-                </button>
-                <div className='absolute inset-0 flex items-center justify-center px-[8%] pt-[16%] pb-[12%]'>
-                  <div className='flex w-full gap-4'>
+                <div className='absolute inset-0 flex items-center justify-between px-[8%] pt-[16%] pb-[12%]'>
+                  <div className='flex w-full justify-between gap-4'>
                     <div className='flex-1'>
                       <h1 className='text-base font-bold text-yellow-400 text-shadow-[3px_3px_2px_rgba(0,0,0,0.7)] mb-1'>Individual Events</h1>
-                      <ul className='text-xs space-y-0.5 max-h-20 overflow-y-auto'>
+                      <ul className='text-xs space-y-0.5 max-h-20 overflow-y-auto custom-scrollbar'>
                         {individualEvents.map((event, index) => (
-                          <li key={index} className='truncate'>• {event}</li>
+                          <li 
+                            key={index} 
+                            onClick={() => handleEventClick(event, 'Individual')}
+                            className='flex justify-between items-center cursor-pointer hover:text-yellow-400 transition-colors group pr-1 min-w-0'
+                          >
+                            <span className='truncate mr-1'>• {event}</span>
+                            <svg className='w-3 h-3 shrink-0' fill='currentColor' viewBox='0 0 24 24'>
+                              <path d='M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z'/>
+                            </svg>
+                          </li>
                         ))}
                       </ul>
                     </div>
                     <div className='flex-1'>
                       <h1 className='text-base font-bold text-yellow-400 text-shadow-[3px_3px_2px_rgba(0,0,0,0.7)] mb-1'>Team Events</h1>
-                      <ul className='text-xs space-y-0.5 max-h-20 overflow-y-auto'>
+                      <ul className='text-xs space-y-0.5 max-h-20 overflow-y-auto custom-scrollbar'>
                         {teamEvents.map((event, index) => (
-                          <li key={index} className='truncate'>• {event}</li>
+                          <li 
+                            key={index} 
+                            onClick={() => handleEventClick(event, 'Team')}
+                            className='flex justify-between items-center cursor-pointer hover:text-yellow-400 transition-colors group pr-1 min-w-0'
+                          >
+                            <span className='truncate mr-1'>• {event}</span>
+                            <svg className='w-3 h-3 shrink-0' fill='currentColor' viewBox='0 0 24 24'>
+                              <path d='M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z'/>
+                            </svg>
+                          </li>
                         ))}
                       </ul>
                     </div>
@@ -459,7 +482,7 @@ const Profile = () => {
                       <div className='w-[30%] text-right'>Verified</div>
                     </div>
                     {/* Table Body */}
-                    <div className='flex-1 overflow-y-auto mt-1 max-h-64'>
+                    <div className='flex-1 overflow-y-auto mt-1 max-h-64 custom-scrollbar'>
                       {passes.map((pass, index) => (
                         <div key={index} className='flex w-full text-[0.625rem] py-1 border-b border-gray-400'>
                           <div className='w-[40%] truncate'>{pass.type}</div>
@@ -521,29 +544,39 @@ const Profile = () => {
             <div className='w-225 min-w-225 shrink-0 flex flex-col text-white'>
               <div className='flex-1 relative -mb-25'>
                 <div className="w-full aspect-9/4 bg-contain bg-center bg-no-repeat" style={{ backgroundImage: `url(${registeredEventsImage})` }} />
-                <button 
-                  onClick={() => setShowEventsModal(true)}
-                  className='absolute top-[8%] right-[8%] w-8 h-8 text-yellow-400 hover:scale-110 transition-transform cursor-pointer z-10'
-                >
-                  <svg fill='currentColor' viewBox='0 0 24 24'>
-                    <path d='M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z'/>
-                  </svg>
-                </button>
-                <div className='absolute inset-0 flex items-center justify-center px-[8%] py-[10%]'>
-                  <div className='flex w-full gap-8'>
+                <div className='absolute inset-0 flex items-center justify-between px-[8%] py-[10%]'>
+                  <div className='flex w-full justify-between gap-8'>
                     <div className='flex-1'>
                       <h1 className='text-2xl font-bold text-yellow-400 text-shadow-[3px_3px_2px_rgba(0,0,0,0.7)] mb-4'>Individual Events</h1>
-                      <ul className='text-lg space-y-2 max-h-50 overflow-y-auto'>
+                      <ul className='text-lg space-y-2 max-h-50 overflow-y-auto custom-scrollbar'>
                         {individualEvents.map((event, index) => (
-                          <li key={index} className='truncate'>• {event}</li>
+                          <li 
+                            key={index} 
+                            onClick={() => handleEventClick(event, 'Individual')}
+                            className='flex justify-between items-center cursor-pointer hover:text-yellow-400 transition-colors group pr-1 min-w-0'
+                          >
+                            <span className='truncate mr-2'>• {event}</span>
+                            <svg className='w-5 h-5 shrink-0' fill='currentColor' viewBox='0 0 24 24'>
+                              <path d='M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z'/>
+                            </svg>
+                          </li>
                         ))}
                       </ul>
                     </div>
                     <div className='flex-1'>
                       <h1 className='text-2xl font-bold text-yellow-400 text-shadow-[3px_3px_2px_rgba(0,0,0,0.7)] mb-4'>Team Events</h1>
-                      <ul className='text-lg space-y-2 max-h-50 overflow-y-auto'>
+                      <ul className='text-lg space-y-2 max-h-50 overflow-y-auto custom-scrollbar'>
                         {teamEvents.map((event, index) => (
-                          <li key={index} className='truncate'>• {event}</li>
+                          <li 
+                            key={index} 
+                            onClick={() => handleEventClick(event, 'Team')}
+                            className='flex justify-between items-center cursor-pointer hover:text-yellow-400 transition-colors group pr-1 min-w-0'
+                          >
+                            <span className='truncate mr-2'>• {event}</span>
+                            <svg className='w-5 h-5 shrink-0' fill='currentColor' viewBox='0 0 24 24'>
+                              <path d='M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z'/>
+                            </svg>
+                          </li>
                         ))}
                       </ul>
                     </div>
@@ -562,12 +595,12 @@ const Profile = () => {
                       <div className='w-[30%] text-right'>Verified</div>
                     </div>
                     {/* Table Body */}
-                    <div className='flex-1 overflow-y-auto mt-3'>
+                    <div className='flex-1 overflow-y-auto mt-3 custom-scrollbar'>
                       {passes.map((pass, index) => (
                         <div key={index} className='flex w-full text-xl py-3 border-b border-gray-400'>
                           <div className='w-[40%] truncate'>{pass.type}</div>
                           <div className='w-[30%] text-center'>{pass.quantity}</div>
-                          <div className={`w-[30%] text-right font-semibold ${pass.verified === 'Yes' ? 'text-green-400' : 'text-red-400'}`}>
+                          <div className={`w-[30%] text-right font-semibold ${pass.verified === 'Yes' ? 'text-green-400' : 'text-red-300'}`}>
                             {pass.verified}
                           </div>
                         </div>
