@@ -414,7 +414,7 @@ const Profile = () => {
                     style={{ backgroundImage: `url(${addImage})` }} 
                   />
                 </div>
-                <div className='flex flex-col justify-center items-center gap-1 text-yellow-400 text-shadow-[3px_3px_2px_rgba(0,0,0,0.7)] mt-[45%]'>
+                <div className='flex flex-col pt-25 justify-center items-center gap-1 text-yellow-400 text-shadow-[3px_3px_2px_rgba(0,0,0,0.7)] mt-[45%]'>
                   <h1 className='text-2xl font-bold'>{userData.name}</h1>
                   <h2 className='text-lg'>ID: {userData.blitzId}</h2>
                   <h3 className='text-base'>{userData.email}</h3>

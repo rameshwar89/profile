@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import bg1 from '../assets/tickets/bg-1.jpg'
 import bg2 from '../assets/tickets/bg-2.jpg'
+import bg from '../assets/tickets/bg.png'
 import cosmic from '../assets/tickets/cosmic.png'
 import galaxy from '../assets/tickets/galaxy.png'
 import part from '../assets/tickets/part.png'
@@ -114,113 +115,99 @@ const Passes = () => {
 
   return (
     <>
-      <div className='lg:hidden block relative overflow-x-hidden'>
-
-        <div className='flex flex-col justify-center items-center w-full h-90 px-5 py-5 gap-4 bg-size-[120vw] bg-no-repeat bg-center' style={{backgroundImage: `url(${bg1})`}}></div>
-
-        <div className='relative'>
-          <div className='w-120 h-120 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex justify-end items-end bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${cosmic})`}}>
-          <div className='w-40 h-20 right-6 -bottom-5 relative cursor-pointer bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${addtocart})`}} onClick={() => addToCart('cosmic')}>
-              <div className='flex relative h-fit bottom-3 justify-center items-center gap-3 right-42 rotate-2'>
-                <div className='w-20 h-5 bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${qty})`}} />
+      <div className='sm:hidden block relative w-full'>
+        
+        {/* Section 1: Cosmic Pass */}
+        <div className='relative w-full py-6 flex items-center justify-center bg-cover bg-center bg-no-repeat' style={{backgroundImage: `url(${bg})`}}>
+          <div className='w-[80vw] max-w-100 min-w-37.5 aspect-square relative flex justify-center items-end bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${cosmic})`}}>
+            <div className='w-[40vw] h-[14%] cursor-pointer bg-contain bg-center bg-no-repeat rotate-2 flex justify-center items-start relative' style={{backgroundImage: `url(${addtocart})`}} onClick={() => addToCart('cosmic')}>
+              <div className='relative flex justify-center w-[60%] -top-6 items-center gap-[0.5vw]'>
+                <div className='w-15 h-5 bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${qty})`}} />
                 <div className='w-5 h-5 bg-contain bg-center bg-no-repeat cursor-pointer' style={{backgroundImage: `url(${plus})`}} onClick={(e) => { e.stopPropagation(); increaseQuantity('cosmic'); }} />
-                <span className='text-yellow-500 text-2xl font-[JustFontime] [text-shadow:2px_2px_0px_rgba(2,2,2,0.5)]'>{quantities.cosmic}</span>
+                <span className='text-yellow-500 text-[3vw] font-[JustFontime] [text-shadow:1px_1px_0px_rgba(2,2,2,0.5)]'>{quantities.cosmic}</span>
                 <div className='w-5 h-5 bg-contain bg-center bg-no-repeat cursor-pointer' style={{backgroundImage: `url(${minus})`}} onClick={(e) => { e.stopPropagation(); decreaseQuantity('cosmic'); }} />
               </div>
             </div>
-            </div>
+          </div>
         </div>
 
-        <div className='flex flex-col justify-center w-screen h-90 px-5 py-5 gap-4 bg-size-[120vw] bg-no-repeat bg-center' style={{backgroundImage: `url(${bg2})`}}></div>
-
-        <div className='flex flex-col justify-center w-screen h-90 px-5 py-5 gap-4 bg-size-[120vw] bg-no-repeat bg-center' style={{backgroundImage: `url(${bg1})`}}></div>
-
-        <div className='relative'>
-          <div className='w-120 h-120 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex justify-end items-end bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${galaxy})`}}>
-          <div className='w-40 h-20 relative -bottom-5 right-20 -rotate-6 cursor-pointer bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${addtocart})`}} onClick={() => addToCart('galaxy')}>
-              <div className='flex relative h-fit rotate-4 justify-center items-center gap-3 bottom-10 right-25'>
-                <div className='w-20 h-5 bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${qty})`}} />
+        {/* Section 2: Galaxy Pass */}
+        <div className='relative w-full py-6 flex items-center justify-center bg-cover bg-center bg-no-repeat' style={{backgroundImage: `url(${bg})`}}>
+          <div className='w-[80vw] max-w-100 min-w-37.5 aspect-square relative flex justify-center items-end bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${galaxy})`}}>
+            <div className='w-[40vw] h-[14%] cursor-pointer bg-contain bg-center bg-no-repeat flex justify-center items-start -rotate-5 -bottom-2 relative' style={{backgroundImage: `url(${addtocart})`}} onClick={() => addToCart('galaxy')}>
+              <div className='relative flex justify-center w-[60%] -top-5 items-center gap-[0.5vw]'>
+                <div className='w-15 h-5 bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${qty})`}} />
                 <div className='w-5 h-5 bg-contain bg-center bg-no-repeat cursor-pointer' style={{backgroundImage: `url(${plus})`}} onClick={(e) => { e.stopPropagation(); increaseQuantity('galaxy'); }} />
-                <span className='text-yellow-500 text-2xl font-[JustFontime] [text-shadow:2px_2px_0px_rgba(2,2,2,0.5)]'>{quantities.galaxy}</span>
+                <span className='text-yellow-500 text-[3vw] font-[JustFontime] [text-shadow:1px_1px_0px_rgba(2,2,2,0.5)]'>{quantities.galaxy}</span>
                 <div className='w-5 h-5 bg-contain bg-center bg-no-repeat cursor-pointer' style={{backgroundImage: `url(${minus})`}} onClick={(e) => { e.stopPropagation(); decreaseQuantity('galaxy'); }} />
               </div>
             </div>
-            </div>
+          </div>
         </div>
 
-        <div className='flex flex-col justify-center w-screen h-90 px-5 py-5 gap-4 bg-size-[120vw] bg-no-repeat bg-center' style={{backgroundImage: `url(${bg2})`}}></div>
-
-        <div className='flex flex-col justify-center w-screen h-90 px-5 py-5 gap-4 bg-size-[120vw] bg-no-repeat bg-center' style={{backgroundImage: `url(${bg1})`}}></div>
-
-        <div className='relative'>
-          <div className='w-120 h-120 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex justify-end items-end bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${part})`}}>
-          <div className='w-40 h-20 relative right-10 -bottom-5 cursor-pointer bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${addtocart})`}} onClick={() => addToCart('part')}>
-            <div className='flex relative h-fit bottom-3 items-center rotate-3 px-2 gap-3 right-50'>
-                <div className='w-20 h-5 bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${qty})`}} />
+        {/* Section 3: Part Pass */}
+        <div className='relative w-full py-6 flex items-center justify-center bg-cover bg-center bg-no-repeat' style={{backgroundImage: `url(${bg})`}}>
+          <div className='w-[80vw] max-w-100 min-w-37.5 aspect-square relative flex justify-center items-end bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${part})`}}>
+            <div className='w-[40vw] h-[14%] cursor-pointer bg-contain bg-center bg-no-repeat flex justify-center items-start -bottom-2 relative' style={{backgroundImage: `url(${addtocart})`}} onClick={() => addToCart('part')}>
+              <div className='relative flex justify-center w-[60%] -top-5 items-center gap-[0.5vw]'>
+                <div className='w-15 h-5 bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${qty})`}} />
                 <div className='w-5 h-5 bg-contain bg-center bg-no-repeat cursor-pointer' style={{backgroundImage: `url(${plus})`}} onClick={(e) => { e.stopPropagation(); increaseQuantity('part'); }} />
-                <span className='text-yellow-500 text-2xl font-[JustFontime] [text-shadow:2px_2px_0px_rgba(2,2,2,0.5)]'>{quantities.part}</span>
+                <span className='text-yellow-500 text-[3vw] font-[JustFontime] [text-shadow:1px_1px_0px_rgba(2,2,2,0.5)]'>{quantities.part}</span>
                 <div className='w-5 h-5 bg-contain bg-center bg-no-repeat cursor-pointer' style={{backgroundImage: `url(${minus})`}} onClick={(e) => { e.stopPropagation(); decreaseQuantity('part'); }} />
               </div>
             </div>
-            </div>
+          </div>
         </div>
 
-        <div className='flex flex-col justify-center w-screen h-90 px-5 py-5 gap-4 bg-size-[120vw] bg-no-repeat bg-center' style={{backgroundImage: `url(${bg2})`}}></div>
-
-        <div className='flex flex-col justify-center w-screen h-90 px-5 py-5 gap-4 bg-size-[120vw] bg-no-repeat bg-center' style={{backgroundImage: `url(${bg1})`}}></div>
-
-        <div className='relative'>
-          <div className='w-120 h-120 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex justify-end items-end bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${day1})`}}>
-          <div className='w-40 h-20 relative right-20 -bottom-5 -rotate-6 cursor-pointer bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${addtocart})`}} onClick={() => addToCart('day1')}>
-            <div className='flex relative h-fit bottom-10 items-center rotate-3 px-2 gap-3 right-30'>
-                <div className='w-20 h-5 bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${qty})`}} />
+        {/* Section 4: Day 1 Pass */}
+        <div className='relative w-full py-6 flex items-center justify-center bg-cover bg-center bg-no-repeat' style={{backgroundImage: `url(${bg})`}}>
+          <div className='w-[80vw] max-w-100 min-w-37.5 aspect-square relative flex justify-center items-end bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${day1})`}}>
+            <div className='w-[40vw] h-[14%] cursor-pointer bg-contain bg-center bg-no-repeat flex justify-center items-start -rotate-5 -bottom-2 relative' style={{backgroundImage: `url(${addtocart})`}} onClick={() => addToCart('day1')}>
+              <div className='relative flex justify-center w-[60%] -top-7 items-center gap-[0.5vw]'>
+                <div className='w-15 h-5 bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${qty})`}} />
                 <div className='w-5 h-5 bg-contain bg-center bg-no-repeat cursor-pointer' style={{backgroundImage: `url(${plus})`}} onClick={(e) => { e.stopPropagation(); increaseQuantity('day1'); }} />
-                <span className='text-yellow-500 text-2xl font-[JustFontime] [text-shadow:2px_2px_0px_rgba(2,2,2,0.5)]'>{quantities.day1}</span>
+                <span className='text-yellow-500 text-[3vw] font-[JustFontime] [text-shadow:1px_1px_0px_rgba(2,2,2,0.5)]'>{quantities.day1}</span>
                 <div className='w-5 h-5 bg-contain bg-center bg-no-repeat cursor-pointer' style={{backgroundImage: `url(${minus})`}} onClick={(e) => { e.stopPropagation(); decreaseQuantity('day1'); }} />
-              </div></div>
+              </div>
             </div>
+          </div>
         </div>
 
-        <div className='flex flex-col justify-center w-screen h-90 px-5 py-5 gap-4 bg-size-[120vw] bg-no-repeat bg-center' style={{backgroundImage: `url(${bg2})`}}></div>
-
-        <div className='flex flex-col justify-center w-screen h-90 px-5 py-5 gap-4 bg-size-[120vw] bg-no-repeat bg-center' style={{backgroundImage: `url(${bg1})`}}></div>
-
-        <div className='relative'>
-          <div className='w-120 h-120 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex justify-end items-end bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${day2})`}}>
-          <div className='w-40 h-20 relative right-10 -bottom-5 cursor-pointer bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${addtocart})`}} onClick={() => addToCart('day2')}>
-            <div className='flex relative h-fit bottom-10 rotate-3 items-center px-2 gap-3 right-45'>
-                <div className='w-20 h-5 bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${qty})`}} />
+        {/* Section 5: Day 2 Pass */}
+        <div className='relative w-full py-6 flex items-center justify-center bg-cover bg-center bg-no-repeat' style={{backgroundImage: `url(${bg})`}}>
+          <div className='w-[80vw] max-w-100 min-w-37.5 aspect-square relative flex justify-center items-end bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${day2})`}}>
+            <div className='w-[40vw] h-[14%] cursor-pointer bg-contain bg-center bg-no-repeat flex justify-center items-start relative' style={{backgroundImage: `url(${addtocart})`}} onClick={() => addToCart('day2')}>
+              <div className='relative flex justify-center w-[60%] -top-5 items-center gap-[0.5vw]'>
+                <div className='w-15 h-5 bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${qty})`}} />
                 <div className='w-5 h-5 bg-contain bg-center bg-no-repeat cursor-pointer' style={{backgroundImage: `url(${plus})`}} onClick={(e) => { e.stopPropagation(); increaseQuantity('day2'); }} />
-                <span className='text-yellow-500 text-2xl font-[JustFontime] [text-shadow:2px_2px_0px_rgba(2,2,2,0.5)]'>{quantities.day2}</span>
+                <span className='text-yellow-500 text-[3vw] font-[JustFontime] [text-shadow:1px_1px_0px_rgba(2,2,2,0.5)]'>{quantities.day2}</span>
                 <div className='w-5 h-5 bg-contain bg-center bg-no-repeat cursor-pointer' style={{backgroundImage: `url(${minus})`}} onClick={(e) => { e.stopPropagation(); decreaseQuantity('day2'); }} />
-              </div></div>
+              </div>
             </div>
+          </div>
         </div>
 
-        <div className='flex flex-col justify-center w-screen h-90 px-5 py-5 gap-4 bg-size-[120vw] bg-no-repeat bg-center' style={{backgroundImage: `url(${bg2})`}}></div>
-
-        <div className='flex flex-col justify-center w-screen h-90 px-5 py-5 gap-4 bg-size-[120vw] bg-no-repeat bg-center' style={{backgroundImage: `url(${bg1})`}}></div>
-
-        <div className='relative'>
-          <div className='w-120 h-120 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex justify-end items-end bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${day3})`}}>
-          <div className='w-40 h-20 relative right-20 -bottom-5 -rotate-5 cursor-pointer bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${addtocart})`}} onClick={() => addToCart('day3')}>
-            <div className='flex relative h-fit bottom-10 rotate-3 items-center px-2 gap-3 right-30'>
-                <div className='w-20 h-5 bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${qty})`}} />
+        {/* Section 6: Day 3 Pass with Checkout */}
+        <div className='relative w-full py-6 flex items-center pb-[20vh] justify-center bg-cover bg-center bg-no-repeat' style={{backgroundImage: `url(${bg})`}}>
+          <div className='w-[80vw] max-w-100 min-w-37.5 aspect-square relative flex justify-center items-end bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${day3})`}}>
+            <div className='w-[40vw] h-[14%] cursor-pointer -rotate-4 bg-contain bg-center bg-no-repeat flex justify-center items-start relative' style={{backgroundImage: `url(${addtocart})`}} onClick={() => addToCart('day3')}>
+              <div className='relative flex justify-center w-[60%] -top-5 items-center gap-[0.5vw]'>
+                <div className='w-15 h-5 bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${qty})`}} />
                 <div className='w-5 h-5 bg-contain bg-center bg-no-repeat cursor-pointer' style={{backgroundImage: `url(${plus})`}} onClick={(e) => { e.stopPropagation(); increaseQuantity('day3'); }} />
-                <span className='text-yellow-500 text-2xl font-[JustFontime] [text-shadow:2px_2px_0px_rgba(2,2,2,0.5)]'>{quantities.day3}</span>
-                <div className='w-5 h-5 bg-[url("./assets/tickets/minus.png")] bg-contain bg-center bg-no-repeat cursor-pointer' onClick={(e) => { e.stopPropagation(); decreaseQuantity('day3'); }} />
-              </div></div>
+                <span className='text-yellow-500 text-[3vw] font-[JustFontime] [text-shadow:1px_1px_0px_rgba(2,2,2,0.5)]'>{quantities.day3}</span>
+                <div className='w-5 h-5 bg-contain bg-center bg-no-repeat cursor-pointer' style={{backgroundImage: `url(${minus})`}} onClick={(e) => { e.stopPropagation(); decreaseQuantity('day3'); }} />
+              </div>
             </div>
+          </div>
+          
+          {/* Checkout Button */}
+          <div className='absolute bottom-[5px] right-[20vw] w-[35vw] max-w-[130px] aspect-[5/4] cursor-pointer bg-contain bg-center bg-no-repeat' style={{backgroundImage: `url(${checkout})`}} onClick={handleCheckout}></div>
         </div>
-
-        <div className='w-50 h-40 absolute right-15 bottom-0 cursor-pointer bg-[url("./assets/tickets/checkout.png")] bg-contain bg-center bg-no-repeat' onClick={handleCheckout}></div>
-
-        <div className='flex flex-col justify-center w-screen h-100 px-5 py-5 gap-4 bg-[url("./assets/tickets/bg-2.jpg")] bg-size-[120vw] bg-no-repeat bg-center'></div>
 
 
       </div>
 
-      <div className='hidden lg:block'>
+      <div className='hidden sm:block'>
         <div className='flex justify-center items-center w-fit h-fit px-20 pt-40 pb-20 bg-[url("./assets/tickets/bg-1.jpg")] bg-size-[1850px] bg-no-repeat bg-center'>
           <div className='flex gap-2 w-350'>
           <div className='w-180 h-180 flex relative justify-end items-end bg-[url("./assets/tickets/cosmic.png")] bg-contain bg-center bg-no-repeat'>
