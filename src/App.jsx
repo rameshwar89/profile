@@ -3,6 +3,7 @@ import Sponsors from './Pages/Sponsors'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Profile from './Pages/Profile.jsx';
 import Otp_forgotpass from './Pages/Otp_forgotpass.jsx';
+import Schedule from './Pages/Schedule.jsx';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route path="/passes" element={<Passes />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/otp" element={<Otp_forgotpass />} />
+        <Route path="/schedule" element={<Schedule />} />
         <Route path="*" element={<h1>Page Not Found</h1>} />
       </Routes>
     </BrowserRouter>
