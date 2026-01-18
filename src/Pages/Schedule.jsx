@@ -5,26 +5,6 @@ import cardImage from '../assets/schedule/card.jpg';
 const eventData = [
   { id: 1, day: 0, name: 'Inauguration Ceremony', club: 'Organizing Committee', time: '10:00 AM', venue: 'Main Auditorium' },
   { id: 2, day: 0, name: 'Cultural Night', club: 'Cultural Club', time: '6:00 PM', venue: 'Open Air Theatre' },
-  { id: 3, day: 1, name: 'Coding Competition', club: 'Tech Club', time: '9:00 AM', venue: 'Computer Lab 1' },
-  { id: 4, day: 1, name: 'Dance Competition', club: 'Cultural Club', time: '2:00 PM', venue: 'Main Stage' },
-  { id: 5, day: 1, name: 'Photography Workshop', club: 'Photography Club', time: '11:00 AM', venue: 'Seminar Hall' },
-  { id: 6, day: 2, name: 'Hackathon Finals', club: 'Tech Club', time: '10:00 AM', venue: 'Innovation Center' },
-  { id: 7, day: 2, name: 'Music Concert', club: 'Music Club', time: '5:00 PM', venue: 'Open Air Theatre' },
-  { id: 8, day: 2, name: 'Debate Competition', club: 'Literary Club', time: '1:00 PM', venue: 'Conference Hall' },
-  { id: 9, day: 3, name: 'Fashion Show', club: 'Fashion Club', time: '3:00 PM', venue: 'Main Stage' },
-  { id: 10, day: 3, name: 'Quiz Competition', club: 'Quiz Club', time: '11:00 AM', venue: 'Auditorium' },
-  { id: 11, day: 3, name: 'Gaming Tournament', club: 'Gaming Club', time: '9:00 AM', venue: 'Gaming Arena' },
-  { id: 12, day: 4, name: 'Prize Distribution', club: 'Organizing Committee', time: '4:00 PM', venue: 'Main Auditorium' },
-  { id: 13, day: 4, name: 'Closing Ceremony', club: 'Organizing Committee', time: '6:00 PM', venue: 'Main Auditorium' },
-  { id: 14, day: 4, name: 'DJ Night', club: 'Cultural Club', time: '8:00 PM', venue: 'Open Air Theatre' },
-  { id: 13, day: 4, name: 'Closing Ceremony', club: 'Organizing Committee', time: '6:00 PM', venue: 'Main Auditorium' },
-  { id: 14, day: 4, name: 'DJ Night', club: 'Cultural Club', time: '8:00 PM', venue: 'Open Air Theatre' },
-  { id: 13, day: 4, name: 'Closing Ceremony', club: 'Organizing Committee', time: '6:00 PM', venue: 'Main Auditorium' },
-  { id: 14, day: 4, name: 'DJ Night', club: 'Cultural Club', time: '8:00 PM', venue: 'Open Air Theatre' },
-  { id: 13, day: 4, name: 'Closing Ceremony', club: 'Organizing Committee', time: '6:00 PM', venue: 'Main Auditorium' },
-  { id: 14, day: 4, name: 'DJ Night', club: 'Cultural Club', time: '8:00 PM', venue: 'Open Air Theatre' },
-  { id: 13, day: 4, name: 'Closing Ceremony', club: 'Organizing Committee', time: '6:00 PM', venue: 'Main Auditorium' },
-  { id: 14, day: 4, name: 'DJ Night', club: 'Cultural Club', time: '8:00 PM', venue: 'Open Air Theatre' },
 ];
 
 const Schedule = () => {
@@ -119,7 +99,6 @@ const Schedule = () => {
                   transition: 'all 0.5s ease'
                 }}
                 onMouseEnter={(e) => {
-                  // Only apply 3D effect on medium screens and larger
                   if (window.innerWidth >= 768) {
                     e.currentTarget.style.transform = 'rotateX(3deg) rotateY(3deg) translateY(-10px) scale(1.05)';
                   }
@@ -130,7 +109,6 @@ const Schedule = () => {
                   }
                 }}
                 onTouchStart={(e) => {
-                  // Simple scale effect on mobile touch
                   e.currentTarget.style.transform = 'scale(0.98)';
                 }}
                 onTouchEnd={(e) => {
